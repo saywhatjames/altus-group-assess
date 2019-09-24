@@ -15,12 +15,10 @@ export class PropertyComponent implements OnInit {
 
   // initialize values for error checking
   maxFlag = false;
-  tenantZeroFlag = false;
-  propertyZeroFlag = false;
 
   // initialize objects as per exercise
   tenant = new Tenant('Ashridge Fine Foods', 63500);
-  property = new Property('23 Canon Place', 305000, [this.tenant]);
+  property = new Property('23 Cannon Place', 305000, [this.tenant]);
 
 
   constructor(private fb: FormBuilder, private ps: PropertyService) {

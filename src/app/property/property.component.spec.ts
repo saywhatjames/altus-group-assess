@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PropertyComponent } from './property.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {PropertyComponent} from './property.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('PropertyComponent', () => {
   let component: PropertyComponent;
@@ -8,9 +8,10 @@ describe('PropertyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropertyComponent ]
+      imports: [ReactiveFormsModule],
+      declarations: [PropertyComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +22,42 @@ describe('PropertyComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Property name field validity', () => {
+    const name = component.argusForm.controls['propertyName'];
+    name.setValue('23 Cannon Place');
+    expect(name.valid).toBeTruthy();
+
+    name.setValue('');
+    expect(name.hasError('required')).toBeTruthy();
+
+  });
+
+  it(' Tenant name field validity', () => {
+    const name = component.argusForm.controls['tenantName'];
+    name.setValue('Ashridge Fine Foods');
+    expect(name.valid).toBeTruthy();
+
+    name.setValue('');
+    expect(name.hasError('required')).toBeTruthy();
+
+  });
+
+  it('Property Area field validity', () => {
+    const propertyArea = component.argusForm.controls['propertyArea'];
+    propertyArea.setValue(3050000);
+    const tenantArea = component.argusForm.controls['tenantArea'];
+    tenantArea.setValue(63500);
+    expect(propertyArea.valid).toBeTruthy();
+
+    propertyArea.setValue('');
+    expect(propertyArea.hasError('required')).toBeTruthy();
+
+    propertyArea.setValue(0);
+    expect(propertyArea.hasError('zeroCheck')).toBeTruthy();
+
+    propertyArea.setValue(60000);
+    expect(propertyArea.hasError('min')).toBeTruthy();
   });
 });

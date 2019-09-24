@@ -1,12 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { PropertyService } from './property.service';
+import {PropertyService} from './property.service';
+
 
 describe('PropertyService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let propertyService: PropertyService; // Add this
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [PropertyService]
+    });
 
-  it('should be created', () => {
-    const service: PropertyService = TestBed.get(PropertyService);
-    expect(service).toBeTruthy();
+    propertyService = TestBed.get(PropertyService); // Add this
+  });
+
+  it('should be created', () => { // Remove inject()
+    expect(propertyService).toBeTruthy();
   });
 });

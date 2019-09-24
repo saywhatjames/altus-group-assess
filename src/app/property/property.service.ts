@@ -4,15 +4,16 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class PropertyService {
+  occupancy: number;
 
   constructor() {
   }
 
-  static calculateOccupancy(propertyArea: number, tenantArea: number): number {
+   calculateOccupancy(propertyArea: number, tenantArea: number): number {
     if (propertyArea === 0) {
       return 0;
     } else {
-      return Math.round((tenantArea * 100) / propertyArea);
+      return this.occupancy = Math.round((tenantArea * 100) / propertyArea);
     }
   }
 }

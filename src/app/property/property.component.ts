@@ -92,9 +92,9 @@ export class PropertyComponent implements OnInit {
    */
 
   calculateOccupancy(propertyArea: number, tenantArea: number) {
-    this.occupancy = this.ps.calculateOccupancy(propertyArea, tenantArea);
     const prevOcc = (this.occupancy) ? this.occupancy : 0;
-    this.animateValue('pointer', prevOcc, this.occupancy, 500);
+    this.occupancy = this.ps.calculateOccupancy(propertyArea, tenantArea);
+    this.animateValue('pointer', prevOcc, this.occupancy, 1000);
   }
 
   /**
@@ -121,6 +121,7 @@ export class PropertyComponent implements OnInit {
       const now = new Date().getTime();
       const remaining = Math.max((endTime - now) / duration, 0);
       const value = Math.round(end - (remaining * range));
+      console.log(value);
       obj.innerHTML = String(value);
       if (value === end) {
         clearInterval(timer);
@@ -130,6 +131,8 @@ export class PropertyComponent implements OnInit {
     timer = setInterval(run, stepTime);
     run();
   }
+
+
 
   /**
    * Initialize component

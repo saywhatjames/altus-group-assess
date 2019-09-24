@@ -1,1 +1,163 @@
 /* You can add global styles to this file, and also import other style files */
+
+// import for css normalization
+@import '~normalize.css';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans:400,700&display=swap');
+
+// variables
+$font-family: 'Lato', 'Open Sans', sans-serif;
+
+
+// Greys
+$gray1: #F5F8FA;
+$gray2: #e1e7ec;
+$gray3: #d5dde5;
+$gray4: #ccd4db;
+$gray5: #aebecd;
+$gray6: #929fb1;
+$gray7: #6e7a8a;
+$gray8: #404b5a;
+$gray9: #202833;
+
+// Error
+$red1: #fce8e8;
+$red3: #e36363;
+$red5: #dc3030;
+$red7: #b82020;
+$red9: #601717;
+
+$logo: #084E8A;
+$blue1: #3183c8;
+$blue2: #ccdae6;
+$blue3: #adc5d8;
+$text-black: #0c1e29;
+
+$border-color: $gray7;
+
+// Breakpoints
+$xs: 576px;
+$md: 1024px;
+
+$base-border-radius: 6px;
+
+// resets and defaults
+body{
+  font-family: $font-family;
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  border: none;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* For Firefox */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+//extensions for commonly used css
+%border-all {
+  border: 1px solid $border-color;
+  background-color: $gray2;
+  border-radius: .5em;
+}
+
+%background-base {
+  background-color: $gray1;
+}
+
+%pt-1 {
+  padding-top: 1em;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+%mt-1{
+  margin-top: 1em;
+}
+
+%p-1{
+  padding: 1em;
+}
+
+%section-base{
+  @extend %mt-1;
+  @extend %p-1;
+  @extend %border-all;
+}
+
+
+//classes for commonly used classes
+.pb-1 {
+  padding-bottom: 1em;
+}
+
+
+.pr-xs{
+  padding-right: 0.5em;
+}
+
+.flex-column{
+  @extend %flex-column;
+}
+
+.flex-row{
+  @extend %flex-row;
+  align-items: baseline;
+}
+
+.flex-no-grow{
+  flex-grow: 0;
+}
+
+.flex-no-shrink{
+  flex-grow: 0;
+}
+.col-4{
+  width: 33%
+}
+
+.text-right{
+  text-align: right;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.font-9{
+  font-size: 0.8em;
+}
+
+.font-8{
+  font-size: 0.9em;
+}

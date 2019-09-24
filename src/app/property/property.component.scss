@@ -1,0 +1,156 @@
+@import "../../styles";
+
+$bar-height: 20px;
+
+.main {
+  margin: 2em 2em;
+  flex: 0 8 70%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: $text-black;
+
+
+  @media only screen and (min-width: $md) {
+    margin: 1em 2em;
+    max-width: 80%;
+  }
+
+  .prop-name {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    overflow-wrap: break-word;
+
+    @media only screen and (min-width: $xs) {
+      text-align: left;
+    }
+  }
+
+  .occupancy {
+    @extend %section-base;
+
+    @media only screen and (min-width: $xs) {
+      padding-right: 4em;
+    }
+
+    .first {
+      width: 100%;
+      height: $bar-height;
+      background-color: $gray3;
+      border-radius: $base-border-radius;
+
+      .second {
+        max-width: 100%;
+        height: $bar-height;
+        background-color: $logo;
+        transition: width 2s;
+        border-radius: $base-border-radius;
+        animation: sliding 1s steps(40, end)
+      }
+
+    }
+
+    .pointer {
+      max-width: 100%;
+      text-align: right;
+      white-space: nowrap;
+      display: inline-block;
+      transition: width 2s;
+      padding-top: 5px;
+      animation: sliding 1s steps(40, end)
+    }
+
+    @keyframes sliding {
+      from {
+        width: 0
+      }
+    }
+
+  }
+
+  .form {
+    flex: 0 4 60%;
+    @extend %section-base;
+
+    .form-flex {
+     @extend %flex-column;
+
+      @media only screen and (min-width: $md) {
+        flex-direction: row;
+      }
+
+    }
+
+    .form-column {
+      flex: 0 0 50%;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 1em;
+
+      @media only screen and (min-width: $xs) {
+        flex-direction: row;
+        padding-right: 3em;
+        align-items: baseline;
+      }
+
+      label {
+        padding-bottom: 0.5em;
+
+      }
+      
+      .input-name {
+        @media only screen and (min-width: $xs) {
+          width: 325px
+        }
+      }
+
+      .flex-row {
+        flex: 0 0 10%;
+      }
+
+      .input-error {
+        border: 1px solid $red3;
+
+        &:focus {
+          box-shadow: 0 0 3px 2px $red5;
+        }
+      }
+
+      .error div{
+        margin-top: 0.5em;
+        padding: 0.5em;
+        color: $red9;
+        background-color: $red1;
+        border: 1px solid $red5;
+        border-radius: $base-border-radius;
+      }
+    }
+
+    .flex-column {
+      flex: 1 1;
+    }
+
+    input {
+      height: 20px;
+      border: 1px solid $border-color;
+      border-radius: $base-border-radius;
+      padding: 0.5em;
+      font-size: 1em;
+      width: stretch;
+
+      &:focus {
+        box-shadow: 0 0 3px 2px $blue1;
+      }
+
+      @media only screen and (min-width: $xs) {
+        width: 300px;
+      }
+    }
+
+  }
+}

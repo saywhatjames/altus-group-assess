@@ -1,0 +1,129 @@
+<div class="main">
+  <div class="prop-name">{{property.name}}</div>
+  <div class="occupancy">
+    <h3>Occupancy</h3>
+    <div class="pb-1">
+      <div class="first">
+        <div class="second" [ngStyle]="{'width.%': occupancy }"></div>
+      </div>
+      <div [ngStyle]="{'width.%': occupancy }" class="pointer">
+        {{tenant.rentableArea | number}} SF
+        <span id="pointer">{{occupancy}}</span>%
+      </div>
+    </div>
+  </div>
+  <div class="form">
+    <form [formGroup]="argusForm" novalidate class="form-flex">
+
+      <div class="form-column">
+        <h3>Property</h3>
+        <div class="form-group">
+          <label for="propertyName"> Name:</label>
+          <div>
+            <input type="text"
+                   class="input-name"
+                   formControlName="propertyName"
+                   id="propertyName"
+                   name="propertyName"
+                   required>
+            <div
+              *ngIf="argusForm.controls['propertyName'].invalid
+              && (argusForm.controls['propertyName'].dirty
+              || argusForm.controls['propertyName'].touched)"
+              class="error">
+              <div *ngIf="argusForm.controls['propertyName'].errors.required">
+                Property name is required.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyArea"> Rentable Area:</label>
+          <div class="flex-row">
+            <div class="pr-xs">SF</div>
+            <div class="flex-column">
+              <input type="number"
+                     class="text-right"
+                     id="propertyArea"
+                     name="propertyArea"
+                     [ngClass]="maxFlag  ? 'input-error': ''"
+                     formControlName="propertyArea"
+                     appNumbersOnly="true"
+                     required>
+              <div
+                *ngIf=" argusForm.controls['propertyArea'].dirty
+              || argusForm.controls['propertyArea'].touched"
+                class="error">
+                <div *ngIf="argusForm.controls['propertyArea'].invalid &&
+             (argusForm.controls['propertyArea'].errors.required ||
+             argusForm.controls['propertyArea'].errors.zeroCheck)">
+                  Property area is required.
+                </div>
+                <div *ngIf="!(argusForm.controls['propertyArea'].invalid &&
+             (argusForm.controls['propertyArea'].errors.required ||
+             argusForm.controls['propertyArea'].errors.zeroCheck)) && maxFlag" class="error">
+                  Not enough property rentable area.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-column">
+        <h3>Tenant</h3>
+        <div class="form-group">
+          <label for="tenantName"> Name:</label>
+          <div><input type="text"
+                      class="input-name"
+                      id="tenantName"
+                      formControlName="tenantName"
+                      name="tenantName"
+                      required>
+            <div
+              *ngIf="argusForm.controls['tenantName'].invalid
+              && (argusForm.controls['tenantName'].dirty
+              || argusForm.controls['tenantName'].touched)"
+              class="error">
+              <div *ngIf="argusForm.controls['tenantName'].errors.required">
+                Tenant name is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tenantArea"> Tenant Area:</label>
+          <div class="flex-row">
+            <div class="pr-xs">SF</div>
+            <div class="flex-column">
+              <input type="number"
+                     class="text-right"
+                     formControlName="tenantArea"
+                     id="tenantArea"
+                     name="tenantArea"
+                     [ngClass]="maxFlag  ? 'input-error': ''"
+                     appNumbersOnly="true"
+                     required>
+              <div
+                *ngIf=" argusForm.controls['tenantArea'].dirty
+              || argusForm.controls['tenantArea'].touched"
+                class="error">
+                <div *ngIf="argusForm.controls['tenantArea'].invalid &&
+             (argusForm.controls['tenantArea'].errors.required ||
+             argusForm.controls['tenantArea'].errors.zeroCheck)">
+                  Tenant area is required.
+                </div>
+                <div *ngIf="!(argusForm.controls['tenantArea'].invalid &&
+             (argusForm.controls['tenantArea'].errors.required ||
+             argusForm.controls['tenantArea'].errors.zeroCheck)) && maxFlag" class="error">
+                  Exceeds max property rentable area.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

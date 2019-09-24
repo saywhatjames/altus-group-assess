@@ -92,7 +92,7 @@ export class PropertyComponent implements OnInit {
    */
 
   calculateOccupancy(propertyArea: number, tenantArea: number) {
-    this.occupancy = PropertyService.calculateOccupancy(propertyArea, tenantArea);
+    this.occupancy = this.ps.calculateOccupancy(propertyArea, tenantArea);
     const prevOcc = (this.occupancy) ? this.occupancy : 0;
     this.animateValue('pointer', prevOcc, this.occupancy, 500);
   }

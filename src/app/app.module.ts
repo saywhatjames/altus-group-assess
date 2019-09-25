@@ -7,6 +7,7 @@ import {FooterComponent} from './footer/footer.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NumbersOnlyDirective} from './numbers-only.directive';
 import {PropertyComponent} from './property/property.component';
+import { AnimateValueDirective } from './animate-value.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {PropertyComponent} from './property/property.component';
     HeaderComponent,
     FooterComponent,
     NumbersOnlyDirective,
-    PropertyComponent
+    PropertyComponent,
+    AnimateValueDirective
   ],
   imports: [
     BrowserModule,

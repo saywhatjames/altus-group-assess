@@ -12,6 +12,7 @@ import {PropertyService} from './property.service';
 export class PropertyComponent implements OnInit {
   argusForm: FormGroup;
   occupancy = 0;
+  prevOcc;
 
   // initialize values for error checking
   maxFlag = false;
@@ -92,46 +93,9 @@ export class PropertyComponent implements OnInit {
    */
 
   calculateOccupancy(propertyArea: number, tenantArea: number) {
-    const prevOcc = (this.occupancy) ? this.occupancy : 0;
+    this.prevOcc = (this.occupancy) ? this.occupancy : 0;
     this.occupancy = this.ps.calculateOccupancy(propertyArea, tenantArea);
-    this.animateValue('pointer', prevOcc, this.occupancy, 1000);
   }
-
-  /**
-   * function for animation of occupancy value
-   */
-
-  animateValue(id: string, start: number, end: number, duration: number) {
-    const obj = document.getElementById(id);
-    const range = end - start;
-    // no timer shorter than 50ms (not really visible any way)
-    const minTimer = 50;
-    // calc step time to show all intermediate values
-    let stepTime = Math.abs(Math.floor(duration / range));
-
-    // never go below minTimer
-    stepTime = Math.max(stepTime, minTimer);
-
-    // get current time and calculate desired end time
-    const startTime = new Date().getTime();
-    const endTime = startTime + duration;
-    let timer;
-
-    function run() {
-      const now = new Date().getTime();
-      const remaining = Math.max((endTime - now) / duration, 0);
-      const value = Math.round(end - (remaining * range));
-      console.log(value);
-      obj.innerHTML = String(value);
-      if (value === end) {
-        clearInterval(timer);
-      }
-    }
-
-    timer = setInterval(run, stepTime);
-    run();
-  }
-
 
 
   /**

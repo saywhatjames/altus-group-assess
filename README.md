@@ -5,11 +5,11 @@ The application is created using using Angular.
 
 
 
-###Problem:
+### Problem:
 Illustrate the occupancy capacity of properties given a dynamic tenants and properties
 and build a page without using existing css frameworks.
 
-###Approach to the problem:
+### Approach to the problem:
 Normalize css. Reset css for inputs.
 Build color palette for design.
 Create models for Property and Tenant. 
@@ -22,16 +22,16 @@ Check for required and zero validations.
 If validations are passed calculate occupancy and depict it in a bar graph.
 Added styling animations to the bar graph.
 
-###Issues:
+### Issues:
 Solving different test cases for input validations are tricky since there are a number of use cases.
 For example both inputs cant not be zero but since the min and max validations doesnt fire a separate 
 validation is needed. Zero is also different from an empty input which angular already have native validations on.
 We also need to only take number inputs and there are different scenarios where a user can input invalid data. 
 
-##Getting Started
+## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-###Prerequisites
+### Prerequisites
 ```
 npm
 Angular CLI

@@ -3,7 +3,7 @@ import {Directive, ElementRef, HostListener, Input, OnChanges, OnInit} from '@an
 @Directive({
   selector: '[appAnimateValue]'
 })
-export class AnimateValueDirective implements OnInit, OnChanges{
+export class AnimateValueDirective implements OnInit, OnChanges {
   @Input() end;
   @Input() start;
   @Input() duration = 500; // default duration
@@ -34,7 +34,7 @@ export class AnimateValueDirective implements OnInit, OnChanges{
       if (value === this.end) {
         clearInterval(timer);
       }
-    }
+    };
 
     const timer = setInterval(run, stepTime);
   }

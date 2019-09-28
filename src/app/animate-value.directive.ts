@@ -1,18 +1,18 @@
-import {Directive, ElementRef, HostListener, Input} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, OnChanges, OnInit} from '@angular/core';
 
 @Directive({
   selector: '[appAnimateValue]'
 })
-export class AnimateValueDirective {
-@Input() end;
-@Input() start;
-@Input() duration = 500; //default duration
+export class AnimateValueDirective implements OnInit, OnChanges{
+  @Input() end;
+  @Input() start;
+  @Input() duration = 500; // default duration
 
   constructor(private el: ElementRef) {
   }
 
-  	animateValue() {
-   	const range = this.end - this.start;
+  animateValue() {
+    const range = this.end - this.start;
     // no timer shorter than 50ms (not really visible any way)
     const minTimer = 50;
     // calc step time to show all intermediate values
@@ -25,33 +25,29 @@ export class AnimateValueDirective {
     const startTime = new Date().getTime();
     const endTime = startTime + this.duration;
 
- 
-    var run = () => {
+
+    const run = () => {
       const now = new Date().getTime();
       const remaining = Math.max((endTime - now) / this.duration, 0);
-      const value = Math.round(this.end - (remaining * range))
-      this.el.nativeElement.innerText= String(value);
+      const value = Math.round(this.end - (remaining * range));
+      this.el.nativeElement.innerText = String(value);
       if (value === this.end) {
         clearInterval(timer);
       }
     }
 
-   
-    let timer = setInterval(run, stepTime);
-    run;
-
-   	}
+    const timer = setInterval(run, stepTime);
+  }
 
 
-   	   ngOnInit(){
-        this.animateValue();
-    }
+  ngOnInit() {
+    this.animateValue();
+  }
 
 
-   	   ngOnChanges(){
-       this.animateValue();
-    }
-
+  ngOnChanges() {
+    this.animateValue();
+  }
 
 
 }

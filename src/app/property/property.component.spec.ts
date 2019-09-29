@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {PropertyComponent} from './property.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('PropertyComponent', () => {
   let component: PropertyComponent;
@@ -9,7 +10,8 @@ describe('PropertyComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
-      declarations: [PropertyComponent]
+      declarations: [PropertyComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));

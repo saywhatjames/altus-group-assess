@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import Tenant from '../Tenant';
-import Property from '../Property';
+import Tenant from './shared/Tenant';
+import Property from './shared/Property';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {PropertyService} from './property.service';
+import {PropertyService} from './shared/property.service';
 
 @Component({
   selector: 'app-property',
@@ -12,18 +12,14 @@ import {PropertyService} from './property.service';
 export class PropertyComponent implements OnInit {
   argusForm: FormGroup;
   occupancy = 0;
-  prevOcc;
+  prevOcc: number;
+  property: Property;
+  tenant: Tenant;
 
   // initialize values for error checking
   maxFlag = false;
 
-  // initialize objects as per exercise
-  tenant = new Tenant('Ashridge Fine Foods', 63500);
-  property = new Property('23 Cannon Place', 305000, [this.tenant]);
-
-
   constructor(private fb: FormBuilder, private ps: PropertyService) {
-    this.createForm();
   }
 
   /**
@@ -103,8 +99,16 @@ export class PropertyComponent implements OnInit {
    */
 
   ngOnInit(): void {
-    this.calculateOccupancy(this.property.rentableArea, this.tenant.rentableArea);
-    this.onChanges();
+    this.ps.getProperty().subscribe((property) => {
+      this.property = property;
+      this.tenant = property.tenants[0];
+      this.createForm();
+      this.calculateOccupancy(this.property.rentableArea, this.tenant.rentableArea);
+      this.onChanges();
+    }, (error) => {
+      console.log(error);
+    });
+
   }
 
 }

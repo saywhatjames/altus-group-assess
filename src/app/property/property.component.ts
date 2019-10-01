@@ -100,14 +100,17 @@ export class PropertyComponent implements OnInit {
 
   ngOnInit(): void {
     this.ps.getProperty().subscribe((property) => {
-      this.property = property;
-      this.tenant = property.tenants[0];
-      this.createForm();
-      this.calculateOccupancy(this.property.rentableArea, this.tenant.rentableArea);
-      this.onChanges();
-    }, (error) => {
-      console.log(error);
-    });
+        this.property = property;
+        this.tenant = property.tenants[0];
+        this.createForm();
+        this.calculateOccupancy(this.property.rentableArea, this.tenant.rentableArea);
+        this.onChanges();
+      }, (error) => {
+        console.log(error);
+      }, () => {
+        console.log('Completed');
+      }
+    );
 
   }
 

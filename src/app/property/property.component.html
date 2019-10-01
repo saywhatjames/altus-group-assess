@@ -4,9 +4,9 @@
     <h3>Occupancy</h3>
     <div class="pb-1">
       <div class="first">
-        <div class="second" [ngStyle]="{'width.%': occupancy }"></div>
+        <div class="second" [style.width.%]="occupancy"></div>
       </div>
-      <div [ngStyle]="{'width.%': occupancy }" class="pointer">
+      <div [style.width.%]="occupancy" class="pointer">
         {{tenant.rentableArea | number}} SF
         <span id="pointer" appAnimateValue [start]='prevOcc' [end]='occupancy'>{{occupancy}}</span>%
       </div>

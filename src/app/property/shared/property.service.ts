@@ -14,11 +14,11 @@ export class PropertyService {
 
   getProperty(): Observable<Property> {
     return new Observable((observer) => {
-      if (!PROPERTY) {
-        observer.error('PROPERT NOT FOUND');
-      } else {
+      try {
         observer.next(PROPERTY);
         observer.complete();
+      } catch (err) {
+        observer.error(err);
       }
     });
   }

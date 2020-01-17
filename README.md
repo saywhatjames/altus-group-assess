@@ -1,6 +1,6 @@
-# AltusAngularInterviewTest
+# AltusAngular
 
-AltusAngularInterviewTest is an application designed for the web and mobile devices that tracks occupance of propertys given their tenants.
+AltusAngular is an application designed for the web and mobile devices that tracks occupance of propertys given their tenants.
 The application is created using using Angular.
 
 

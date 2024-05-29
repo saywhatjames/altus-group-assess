@@ -1,69 +1,131 @@
-# AltusAngular
+Visualizing bank transaction metrics can greatly enhance a bank’s ability to understand, manage, and optimize its operations. Here are several compelling use cases for visualizing bank transaction metrics:
 
-AltusAngular is an application designed for the web and mobile devices that tracks occupance of propertys given their tenants.
-The application is created using using Angular.
+1. Fraud Detection and Prevention
 
+Use Case:
 
+Banks need to quickly identify and respond to fraudulent activities to minimize losses and maintain customer trust.
 
-### Problem:
-Illustrate the occupancy capacity of properties given a dynamic tenants and properties
-and build a page without using existing css frameworks.
+Metrics and Visualizations:
 
-### Approach to the problem:
-Normalize css. Reset css for inputs.
-Build color palette for design.
-Create models for Property and Tenant. 
-Apply model changes to the data binded property name input to reflect property name title. 
-Create a property service to separate business logic of calculating occupancy.
-Create a directive for input to only accept numbers.
-Watch for value changes for Property Rentable Area and Tenant Area.
-Check for validations since property rentable area cannot be lesser than tenant area.
-Check for required and zero validations.
-If validations are passed calculate occupancy and depict it in a bar graph.
-Added styling animations to the bar graph.
+        •       Heatmaps: Highlight regions with high frequencies of fraud.
+        •       Anomaly Detection: Time series charts to identify unusual spikes in transaction volumes.
+        •       Transaction Flows: Chord diagrams showing unexpected transaction paths or high-risk countries.
 
-### Issues:
-Solving different test cases for input validations are tricky since there are a number of use cases.
-For example both inputs cant not be zero but since the min and max validations doesnt fire a separate 
-validation is needed. Zero is also different from an empty input which angular already have native validations on.
-We also need to only take number inputs and there are different scenarios where a user can input invalid data. 
+Benefits:
 
-## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+        •       Real-time monitoring and quicker response to fraudulent activities.
+        •       Improved accuracy in detecting fraud patterns.
+        •       Enhanced customer trust through proactive security measures.
 
-### Prerequisites
-```
-npm
-Angular CLI
-```
+2. Customer Behavior Analysis
 
-### Installing
+Use Case:
 
-Run `npm install` to install the necessary dependencies for the project.
+Understanding customer behavior helps in tailoring personalized banking services and improving customer satisfaction.
 
-### Running the development server
+Metrics and Visualizations:
 
-Run `ng serve` for a dev server. Navigate to [http://localhost:4200/](http://localhost:4200/). 
-The app will automatically reload if you change any of the source files.
+        •       Segmentation Analysis: Pie charts showing transaction types distribution among different customer segments.
+        •       Spending Patterns: Line graphs showing individual customer transaction trends over time.
+        •       Geographic Distribution: Heatmaps indicating where most transactions originate.
 
-## Build
+Benefits:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+        •       Personalized marketing campaigns and product offerings.
+        •       Improved customer satisfaction and retention rates.
+        •       Enhanced cross-selling and up-selling opportunities.
 
-## Running unit tests
+3. Operational Efficiency
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Use Case:
 
-## Running end-to-end tests
+Banks aim to streamline operations to reduce costs and enhance service delivery.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Metrics and Visualizations:
 
-## Built With
+        •       Transaction Processing Time: Bar charts showing average processing times across different transaction types.
+        •       Error Rates: Line graphs displaying error rates and failed transactions over time.
+        •       Resource Utilization: Pie charts indicating the distribution of resources across various operations.
 
-* [Angular](https://angular.io/) - The web framework used
-* [NPM](https://www.npmjs.com/) - Dependency Management
-* [Angular CLI](https://cli.angular.io/) - CLI developing tool for Angular
-## Author
+Benefits:
 
-**James Magpantay** [Github](https://github.com/saywhatjames)
+        •       Identification of bottlenecks in transaction processing.
+        •       Optimization of resource allocation.
+        •       Reduced operational costs and enhanced service efficiency.
 
+4. Regulatory Compliance
+
+Use Case:
+
+Banks must comply with various regulations to avoid penalties and maintain their operating licenses.
+
+Metrics and Visualizations:
+
+        •       Compliance Rate: Bar charts showing the rate of compliance with different regulations.
+        •       Audit Trails: Sankey diagrams tracing the flow of transactions for audit purposes.
+        •       Reporting Frequency: Line charts showing the frequency and timeliness of regulatory reporting.
+
+Benefits:
+
+        •       Simplified tracking and reporting of compliance metrics.
+        •       Reduced risk of non-compliance penalties.
+        •       Enhanced transparency and accountability.
+
+5. Risk Management
+
+Use Case:
+
+Effective risk management is crucial for maintaining the financial health of the bank.
+
+Metrics and Visualizations:
+
+        •       Credit Exposure: Heatmaps showing regions or sectors with high credit exposure.
+        •       Default Rates: Line charts tracking default rates over time.
+        •       Risk Concentration: Bar charts indicating the concentration of risk across different portfolios.
+
+Benefits:
+
+        •       Better identification and management of high-risk areas.
+        •       Improved decision-making regarding credit issuance and portfolio management.
+        •       Reduced financial losses due to improved risk mitigation strategies.
+
+6. Market Trend Analysis
+
+Use Case:
+
+Staying informed about market trends helps banks in strategic planning and competitive positioning.
+
+Metrics and Visualizations:
+
+        •       Transaction Volume Trends: Line charts showing transaction volumes across different time periods.
+        •       Regional Market Share: Heatmaps illustrating the bank’s market share in different regions.
+        •       Competitive Analysis: Bar charts comparing transaction metrics with competitors.
+
+Benefits:
+
+        •       Enhanced strategic planning and market positioning.
+        •       Improved understanding of market dynamics and customer needs.
+        •       Better anticipation of market shifts and proactive response.
+
+7. Revenue Optimization
+
+Use Case:
+
+Banks need to maximize revenue by identifying profitable services and optimizing pricing strategies.
+
+Metrics and Visualizations:
+
+        •       Revenue Breakdown: Pie charts showing revenue distribution across different products and services.
+        •       Profit Margins: Bar charts comparing profit margins of various transaction types.
+        •       Customer Profitability: Heatmaps identifying the most profitable customer segments.
+
+Benefits:
+
+        •       Improved revenue management and growth.
+        •       Enhanced pricing strategies based on data-driven insights.
+        •       Identification of high-value services and customer segments.
+
+Conclusion
+
+Visualizing bank transaction metrics enables banks to gain deep insights into their operations, enhance decision-making, and drive strategic initiatives. By leveraging various visualizations, banks can better understand fraud patterns, customer behaviors, operational efficiencies, regulatory compliance, risk exposures, market trends, and revenue opportunities. These insights lead to improved performance, customer satisfaction, and competitive advantage.
